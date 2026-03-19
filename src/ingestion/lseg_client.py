@@ -33,8 +33,6 @@ def open_session() -> None:
         import lseg.data as ld
         ld.open_session(
             app_key=keys.app_key,
-            username=keys.username,
-            password=keys.password,
         )
         _session_open = True
         logger.info("LSEG session opened")

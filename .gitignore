@@ -1,0 +1,14 @@
+config/api_keys.yaml
+data/
+logs/
+models/finnbert_model/
+__pycache__/
+*.pyc
+*.pyo
+.env
+.venv
+venv/
+*.egg-info/
+dist/
+.pytest_cache/
+.mypy_cache/

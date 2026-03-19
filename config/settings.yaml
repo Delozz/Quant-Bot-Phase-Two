@@ -1,0 +1,38 @@
+universe:
+  index: "S&P500"
+  min_avg_volume: 1_000_000
+
+factors:
+  mean_reversion:
+    rolling_window: 20
+    z_trigger: -2.0
+    clip_range: [-5, 5]
+
+  sentiment:
+    short_window_hours: 24
+    long_window_days: 7
+    min_articles: 5
+    min_relevance: 0.7
+    batch_size: 32
+    decay_lambda: 0.1
+
+  pb_ratio:
+    bottom_pct_threshold: 0.20
+
+normalization:
+  winsorize_limits: [0.01, 0.01]
+
+storage:
+  factors_path: "data/features/factors.parquet"
+  raw_news_path: "data/raw/news"
+  raw_fundamentals_path: "data/raw/fundamentals"
+  residuals_path: "data/processed/pca_residuals.parquet"
+
+scheduling:
+  run_time: "18:30"
+  timezone: "America/New_York"
+
+logging:
+  level: "INFO"
+  format: "json"
+  output: "logs/quantbot.log"
